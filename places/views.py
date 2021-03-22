@@ -9,15 +9,15 @@ from places.models import Place
 
 def serialise_place_geojson(place):
     return {
-        "type": "Feature",
-        "geometry": {
-            "type": "Point",
-            "coordinates": [place.longitude, place.latitude],
+        'type': 'Feature',
+        'geometry': {
+            'type': 'Point',
+            'coordinates': [place.longitude, place.latitude],
         },
-        "properties": {
-            "title": place.title,
-            "placeId": place.id,
-            "detailsUrl": reverse('place_api', kwargs={'place_id': place.id}),
+        'properties': {
+            'title': place.title,
+            'placeId': place.id,
+            'detailsUrl': reverse('place_api', kwargs={'place_id': place.id}),
         }
     }
 
@@ -25,13 +25,13 @@ def serialise_place_geojson(place):
 def serialise_place_details(place):
     images = place.images.all()
     return {
-        "title": place.title,
-        "imgs": [image.file.url for image in images],
-        "description_short": place.description_short,
-        "description_long": place.description_long,
-        "coordinates": {
-            "lng": place.longitude,
-            "lat": place.latitude,
+        'title': place.title,
+        'imgs': [image.file.url for image in images],
+        'description_short': place.description_short,
+        'description_long': place.description_long,
+        'coordinates': {
+            'lng': place.longitude,
+            'lat': place.latitude,
         }
     }
 
@@ -40,9 +40,9 @@ def index(request):
     template = loader.get_template('index.html')
     places = Place.objects.all()
     context = {
-        "places": {
-            "type": "FeatureCollection",
-            "features": [serialise_place_geojson(place) for place in places],
+        'places': {
+            'type': 'FeatureCollection',
+            'features': [serialise_place_geojson(place) for place in places],
         }
     }
     rendered_page = template.render(context, request)
