@@ -11,11 +11,19 @@ class Place(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'Место'
+        verbose_name_plural = 'Места'
+
 
 class Image(models.Model):
-    place = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name="Локация", related_name="images")
+    place = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name='Локация', related_name='images')
     position = models.IntegerField('Позиция', blank=True)
     file = models.ImageField('Файл изображения')
 
     def __str__(self):
         return f'{self.position} {self.place}'
+
+    class Meta:
+        verbose_name = 'Фотография'
+        verbose_name_plural = 'Фотографии'
