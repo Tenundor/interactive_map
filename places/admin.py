@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.utils.html import format_html
+from adminsortable2.admin import SortableInlineAdminMixin
 from .models import Place, Image
 
 
-class ImageInline(admin.TabularInline):
+class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Image
-    fields = ('file', 'get_preview', 'position')
+    fields = ('file', 'get_preview')
     extra = 1
 
     readonly_fields = ('get_preview',)

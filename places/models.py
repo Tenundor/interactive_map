@@ -18,12 +18,13 @@ class Place(models.Model):
 
 class Image(models.Model):
     place = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name='Локация', related_name='images')
-    position = models.IntegerField('Позиция', blank=True)
+    position = models.PositiveIntegerField('Позиция', default=0, blank=False, null=False)
     file = models.ImageField('Файл изображения')
 
     def __str__(self):
         return f'{self.position} {self.place}'
 
     class Meta:
+        ordering = ['position']
         verbose_name = 'Фотография'
         verbose_name_plural = 'Фотографии'
