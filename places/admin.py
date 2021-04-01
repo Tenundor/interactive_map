@@ -21,6 +21,3 @@ class PlaceAdmin(admin.ModelAdmin):
         ImageInline,
     ]
     search_fields = ['title']
-
-
-admin.site.register(Image)
