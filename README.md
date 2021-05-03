@@ -3,5 +3,5 @@
 Интерактивная карта Москвы, на которой указаны различные виды активного отдыха
 с подробными описаниями и комментариями.
 
-![screenshot](screenshots/ezgif.com-gif-maker_4nWhtfQ.gif)
+<img width="70%" alt="screenshot" src="screenshots/ezgif.com-gif-maker_4nWhtfQ.gif">
 
