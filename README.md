@@ -5,3 +5,22 @@
 
 <img width="70%" alt="screenshot" src="screenshots/ezgif.com-gif-maker_4nWhtfQ.gif">
 
+## Установка
+
+Для запуска у вас уже должен быть установлен Python 3.
+
+- Скачайте код из репозитория GitHub
+- Установите зависимости:
+
+`pip install -r requirements.txt`
+
+- Создайте файл базы данных SQLite:
+
+`python3 manage.py migrate`
+
+- Настройте переменные окружения в файле `.env` (см. ниже)
+- Запустите разработческий сервер:
+
+`python3 manage.py runserver`
+
+## Переменные окружения
