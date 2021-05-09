@@ -1,10 +1,11 @@
 import json.decoder
+from pathlib import Path
 
 from django.core.management.base import BaseCommand, CommandError
 from django.core.files.base import ContentFile
+
 from places.models import Place, Image
 
-from pathlib import Path
 import requests
 
 
